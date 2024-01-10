@@ -57,8 +57,8 @@ def cli(mens_room_pin, ladies_room_pin, silent):
         set_website("Female Init", prev_female_state, silent)
 
         while True:
-            male_state = GPIO.input(mens_room_input)
-            female_state = GPIO.input(ladies_room_input)
+            male_state = GPIO.input(mens_room_pin)
+            female_state = GPIO.input(ladies_room_pin)
             if female_state != prev_female_state:
                 if not silent:
                     print("Female bathroom registered: ", female_state)
