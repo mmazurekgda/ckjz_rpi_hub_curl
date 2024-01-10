@@ -4,6 +4,16 @@
 
 ### Python
 
+1. Make sure you have conda and pip installed with Python3. Install the dependencies:
+
+```console
+pip install -r requirements.txt
+```
+
+2. Set the right pin numbers and the URI of the host with CKJZ sockets exposed at this address. This is configurable in `rpi-hub-curl.py`
+
+3. Run `python rpi-hub-curl.py` or run it with cron to have it ready on startup.
+
 ### C++
 Tested on Debian-based system only. 
 
@@ -21,4 +31,4 @@ sudo apt install make g++
 
 ## Default pinout
 
-![image](https://github.com/mmazurekgda/ckjz_rpi_hub_curl/assets/12483634/143216c0-f41d-4bbf-b8a2-334a7683662e)
+![image](pinout.png)
