@@ -53,12 +53,12 @@ def cli(mens_room_pin, ladies_room_pin, silent):
     try:
         prev_female_state = GPIO.input(ladies_room_pin)
         prev_male_state = GPIO.input(mens_room_pin)
-        set_website("Male Init", prev_male_state)
-        set_website("Female Init", prev_female_state)
+        set_website("Male Init", prev_male_state, silent)
+        set_website("Female Init", prev_female_state, silent)
 
         while True:
-            male_state = GPIO.input(23)
-            female_state = GPIO.input(21)
+            male_state = GPIO.input(mens_room_input)
+            female_state = GPIO.input(ladies_room_input)
             if female_state != prev_female_state:
                 if not silent:
                     print("Female bathroom registered: ", female_state)
@@ -70,6 +70,7 @@ def cli(mens_room_pin, ladies_room_pin, silent):
                 set_website("Male", male_state, silent)
                 prev_male_state = male_state
     except:
+        # TODO: improve this...
         GPIO.cleanup()
 
 
